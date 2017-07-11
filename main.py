@@ -206,40 +206,44 @@ def start_chat(spy):
     else:
         print 'Sorry you are not of the correct age to be a spy'
 
-if existing == "Y":
+        if existing == "Y":
     start_chat(spy)
-else:
+elif existing == "N":
 
     spy = Spy('','',0,0.0)
 
 # For custom user app ask for the name of the user
     spy.name = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
 
-    if len(spy.name) > 0:
+    if (spy.name).isalpha() == True:
+
         # The app ask for the salutaion the user wants to be used in front of their name.
         spy.salutation = raw_input("Should I call you Mr. or Ms.?: ")
 
         # Ask the user for their age and convert it to integer type
         spy.age = raw_input("What is your age?")
         spy.age = int(spy.age)
+        if spy.age > 12 and spy.age < 50:
 
-        # Ask the user for their rating and convert it to float
-        spy.rating = raw_input("What is your spy rating?")
-        spy.rating = float(spy.rating)
+            # Ask the user for their rating and convert it to float
+            spy.rating = raw_input("What is your spy rating?")
+            spy.rating = float(spy.rating)
 
-        # Based on spy rating it displays an appropriate message using at least one if, elif and else sequence
-        if spy.rating > 4.5:
-            print 'Great going!'
-        elif spy.rating > 3.5 and spy.rating <= 4.5:
-            print 'You are one of the good ones.'
-        elif spy.rating >= 2.5 and spy.rating <= 3.5:
-            print 'Do better'
+            # Based on spy rating it displays an appropriate message using at least one if, elif and else sequence
+            if spy.rating > 4.5:
+                print 'Great going!'
+            elif spy.rating > 3.5 and spy.rating <= 4.5:
+                print 'You are one of the good ones.'
+            elif spy.rating >= 2.5 and spy.rating <= 3.5:
+                print 'Do better'
+            else:
+                print 'We can always use somebody to help in the office.'
+            start_chat(spy)
         else:
-            print 'We can always use somebody to help in the office.'
-
-
-        start_chat(spy)
+            print 'Sorry you are not of the correct age to be a spy'
     # If user has entered an invalid name as input then it display a warning message and finish execution
     else:
         print 'Please add a valid and appropriate spy name'
+else:
+    print "Wrong input! The program will terminate now."
 
