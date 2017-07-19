@@ -206,7 +206,7 @@ def start_chat(spy):
     else:
         print 'Sorry you are not of the correct age to be a spy'
 
-        if existing == "Y":
+if existing == "Y":
     start_chat(spy)
 elif existing == "N":
 
